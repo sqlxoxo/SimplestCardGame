@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropPlaceScr : MonoBehaviour, IDropHandler, IPointedEnterHandler, IPointedExitHandler
+public class DropPlaceScr : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public void OnDrop(PointerEventData eventData) 
+    public void OnDrop(PointerEventData eventData)
     {
         CardScr card = eventData.pointerDrag.GetComponent<CardScr>();
 
@@ -13,25 +13,25 @@ public class DropPlaceScr : MonoBehaviour, IDropHandler, IPointedEnterHandler, I
             card.DefaultParent = transform;
     }
 
-public void OnPointerEnter(PointerEventData eventData)
-{
-    if (eventData.pointerDrag == null)
-    return;
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag == null)
+            return;
 
-    CardScr card = eventData.pointerDrag.GetComponent<CardScr>();
+        CardScr card = eventData.pointerDrag.GetComponent<CardScr>();
 
-    if (card)
-    card.DefaultTempCardParent = transform;
-}
+        if (card)
+            card.DefaultTempCardParent = transform;
+    }
 
-public void OnPointerExit(PointerEventData eventData)
-{
-if (eventData.pointerDrag == null)
-return;
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag == null)
+            return;
 
-CardScr card - eventData.pointerDrag.GetComponent<CardScr>();
+        CardScr card = eventData.pointerDrag.GetComponent<CardScr>();
 
-if (card && card.DefaultTempCardParent == transform)
-card.DefaultTempCardParent == card.DefaultParent;
-}
+        if (card && card.DefaultTempCardParent == transform)
+            card.DefaultTempCardParent = card.DefaultParent;
+    }
 }
