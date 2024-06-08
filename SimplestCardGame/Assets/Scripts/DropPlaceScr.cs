@@ -24,7 +24,8 @@ public void OnPointerEnter(PointerEventData eventData)
     card.DefaultTempCardParent = transform;
 }
 
-public void OnPointerExit(PointerEventData eventData){
+public void OnPointerExit(PointerEventData eventData)
+{
 if (eventData.pointerDrag == null)
 return;
 
@@ -32,4 +33,5 @@ CardScr card - eventData.pointerDrag.GetComponent<CardScr>();
 
 if (card && card.DefaultTempCardParent == transform)
 card.DefaultTempCardParent == card.DefaultParent;
+}
 }
