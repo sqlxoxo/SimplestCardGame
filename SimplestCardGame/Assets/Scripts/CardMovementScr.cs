@@ -53,7 +53,7 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         transform.SetSiblingIndex(TempCardGO.transform.GetSiblingIndex());
 
         TempCardGO.transform.SetParent(GameObject.Find("Canvas").transform);
-        TempCardGO.transform.localPosition = new Vector3(2218, 0);
+        TempCardGO.transform.localPosition = new Vector3(2246, 0);
 
 
     }
