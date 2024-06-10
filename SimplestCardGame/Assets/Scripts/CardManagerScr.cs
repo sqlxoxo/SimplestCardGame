@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public struct Card
+{
+
+    public string Name;
+    public Sprite Logo;
+
+    public int Attack, Health, Defense;
+
+    public Card(string name, string logoPath, int attack, int health, int defense)
+    {
+
+        Name = name;
+        Logo = Resources.Load<Sprite>(logoPath);
+        Attack = attack;
+        Health = health;
+        Defense = defense;
+
+    }
+
+}
+
+public static class CardManager
+{
+    public static List<Card> AllCards = new List<Card>();
+}
+
+public class CardManagerScr : MonoBehaviour
+{
+
+    public void Awake()
+    {
+        CardManager.AllCards.Add(new Card("name_1", "Sprites/Cards/Card_1", 5, 5, 5));
+        CardManager.AllCards.Add(new Card("name_2", "Sprites/Cards/Card_2", 5, 5, 5));
+        CardManager.AllCards.Add(new Card("name_3", "Sprites/Cards/Card_3", 5, 5, 5));
+        CardManager.AllCards.Add(new Card("name_4", "Sprites/Cards/Card_4", 5, 5, 5));
+    }
+
+}
