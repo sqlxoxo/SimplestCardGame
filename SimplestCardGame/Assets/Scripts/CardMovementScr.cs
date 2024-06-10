@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardScr : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Camera MainCamera;
     Vector3 offSet;
