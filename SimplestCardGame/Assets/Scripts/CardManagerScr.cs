@@ -25,7 +25,7 @@ public struct Card
 
 public static class CardManager
 {
-    public static List<Card> AllCards = new List<Card>();
+    public static List<Card> AllCards = new();
 }
 
 public class CardManagerScr : MonoBehaviour

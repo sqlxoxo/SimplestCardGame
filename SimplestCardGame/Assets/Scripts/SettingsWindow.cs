@@ -7,19 +7,19 @@ public class SettingsController : MonoBehaviour
 
     void Start()
     {
-        // Скрыть окно настроек при запуске
+
         settingsWindow.SetActive(false);
     }
 
     public void OpenSettings()
     {
-        // Открыть окно настроек
+
         settingsWindow.SetActive(true);
     }
 
     public void CloseSettings()
     {
-        // Закрыть окно настроек
+
         settingsWindow.SetActive(false);
     }
 }

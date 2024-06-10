@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4447756246004435326}
   - component: {fileID: 3526196066071893588}
   - component: {fileID: 5153629014630787775}
+  - component: {fileID: 7356317735523086593}
+  - component: {fileID: 6406470981779295564}
   m_Layer: 5
   m_Name: CardPrefab
   m_TagString: Untagged
@@ -76,6 +78,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7356317735523086593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942915706477607243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c1dd445fa3ade4f8835814b6527fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6406470981779295564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942915706477607243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a824553c7726b49875c552ece8c263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Logo: {fileID: 5153629014630787775}
+  Name: {fileID: 0}
 --- !u!1 &7894841698043219362
 GameObject:
   m_ObjectHideFlags: 0

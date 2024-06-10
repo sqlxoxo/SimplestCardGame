@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour
 {
-    public AudioSource music; // Ссылка на компонент AudioSource для проигрывания музыки
-    public Button pauseButton; // Ссылка на кнопку "Пауза"
-    public Button playButton; // Ссылка на кнопку "Воспроизвести"
+    public AudioSource music;
+    public Button pauseButton;
+    public Button playButton;
 
     void Start()
     {
-        // Назначаем обработчики событий для кнопок
+
         pauseButton.onClick.AddListener(PauseMusic);
         playButton.onClick.AddListener(PlayMusic);
     }
 
-    // Метод для приостановки воспроизведения музыки
+
     void PauseMusic()
     {
         if (music.isPlaying)
@@ -23,7 +23,7 @@ public class MusicController : MonoBehaviour
         }
     }
 
-    // Метод для продолжения воспроизведения музыки
+
     void PlayMusic()
     {
         if (!music.isPlaying)
