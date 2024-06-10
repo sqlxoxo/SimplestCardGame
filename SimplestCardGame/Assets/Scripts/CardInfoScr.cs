@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using JetBrains.Annotations;
 
 public class CardInfoScr : MonoBehaviour
 {
@@ -19,6 +18,11 @@ public class CardInfoScr : MonoBehaviour
         Logo.preserveAspect = true;
         Name.text = card.Name;
 
+    }
+
+    public void Start()
+    {
+        ShowCardInfo(CardManager.AllCards[transform.GetSiblingIndex()]);
     }
 
 }
