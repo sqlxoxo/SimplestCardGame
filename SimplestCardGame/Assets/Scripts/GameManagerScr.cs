@@ -52,7 +52,7 @@ public class GameManagerScr : MonoBehaviour
     void GiveHandCards(List<Card> deck, Transform hand)
     {
         int i = 0;
-        while (i < 4)
+        while (i++ < 4)
         {
             GiveCardToHand(deck, hand);
         }
