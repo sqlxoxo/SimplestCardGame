@@ -12,6 +12,8 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     GameObject TempCardGO;
 
+    public bool IsDraggable;
+
     void Awake()
     {
         MainCamera = Camera.allCameras[0];
@@ -24,6 +26,12 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         DefaultParent = DefaultTempCardParent = transform.parent;
 
+        IsDraggable = DefaultParent.GetComponent<DropPlaceScr>().Type == FieldType.SELF_HAND;
+
+        if (!IsDraggable)
+        {
+            return;
+        }
         TempCardGO.transform.SetParent(DefaultParent);
         TempCardGO.transform.SetSiblingIndex(transform.GetSiblingIndex());
 
@@ -33,6 +41,10 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!IsDraggable)
+        {
+            return;
+        }
         Vector3 newPos = MainCamera.ScreenToWorldPoint(eventData.position);
         // newPos.z = 0;
         transform.position = newPos + offSet;
@@ -47,6 +59,10 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!IsDraggable)
+        {
+            return;
+        }
         transform.SetParent(DefaultParent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 

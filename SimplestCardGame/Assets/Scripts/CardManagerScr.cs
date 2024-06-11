@@ -36,6 +36,8 @@ public class CardManagerScr : MonoBehaviour
         CardManager.AllCards.Add(new Card("card_2", "Sprites/Cards/Card_2", 1, 4, 0));
         CardManager.AllCards.Add(new Card("card_3", "Sprites/Cards/Card_3", 2, 1, 0));
         CardManager.AllCards.Add(new Card("card_4", "Sprites/Cards/Card_4", 3, 3, 0));
+        CardManager.AllCards.Add(new Card("card_5", "Sprites/Cards/Card_5", 3, 3, 0));
+        CardManager.AllCards.Add(new Card("card_6", "Sprites/Cards/Card_6", 3, 3, 0));
     }
 
 }
