@@ -321,7 +321,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104744669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 227084771}
+        m_TargetAssemblyTypeName: GameManagerScr, Assembly-CSharp
+        m_MethodName: ChangeTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &104744669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,8 +764,8 @@ MonoBehaviour:
   EnemyHand: {fileID: 503879824}
   PlayerHand: {fileID: 1338490336}
   CardPrefab: {fileID: 138913839889215660, guid: 388d2966fa59abc46a1fee52a3b69bcf, type: 3}
-  TurnTimeTxt: {fileID: 0}
-  EntTurnButton: {fileID: 0}
+  TurnTimeTxt: {fileID: 304157213}
+  EndTurnButton: {fileID: 104744668}
 --- !u!1 &272064187
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,8 +947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 322.83}
-  m_SizeDelta: {x: 91.17, y: 82.335}
+  m_AnchoredPosition: {x: -680, y: 327}
+  m_SizeDelta: {x: 168.99, y: 133.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &304157213
 MonoBehaviour:
@@ -960,8 +972,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -989,7 +1001,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 24
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Game
 {
@@ -45,14 +46,25 @@ public class GameManagerScr : MonoBehaviour
 
     public TextMeshProUGUI TurnTimeTxt;
 
-    public Button EntTurnButton;
+    public Button EndTurnButton;
+
+    public bool IsPlayerTurn
+    {
+        get
+        {
+            return Turn % 2 == 0;
+        }
+    }
 
     void Start()
     {
+        Turn = 0;
         CurrentGame = new Game();
 
         GiveHandCards(CurrentGame.EnemyDeck, EnemyHand);
         GiveHandCards(CurrentGame.PlayerDeck, PlayerHand);
+
+        StartCoroutine(TurnFunc());
     }
 
     void GiveHandCards(List<Card> deck, Transform hand)
@@ -84,5 +96,50 @@ public class GameManagerScr : MonoBehaviour
             cardGO.GetComponent<CardInfoScr>().ShowCardInfo(card);
         }
         deck.RemoveAt(0);
+    }
+
+    IEnumerator TurnFunc()
+    {
+        TurnTime = 30;
+        TurnTimeTxt.text = TurnTime.ToString();
+
+        if (IsPlayerTurn)
+        {
+            while (TurnTime-- > 0)
+            {
+                TurnTimeTxt.text = TurnTime.ToString();
+                yield return new WaitForSeconds(1);
+            }
+        }
+        else
+        {
+            while (TurnTime-- > 27)
+            {
+                TurnTimeTxt.text = TurnTime.ToString();
+                yield return new WaitForSeconds(1);
+            }
+        }
+        ChangeTurn();
+    }
+
+    public void ChangeTurn()
+    {
+        StopAllCoroutines();
+
+        Turn++;
+        EndTurnButton.interactable = IsPlayerTurn;
+
+        if (IsPlayerTurn)
+        {
+            GiveNewCards();
+        }
+
+        StartCoroutine(TurnFunc());
+    }
+
+    void GiveNewCards()
+    {
+        GiveCardToHand(CurrentGame.EnemyDeck, EnemyHand);
+        GiveCardToHand(CurrentGame.PlayerDeck, PlayerHand);
     }
 }
