@@ -41,6 +41,12 @@ public class GameManagerScr : MonoBehaviour
 
     public GameObject CardPrefab;
 
+    int Turn, TurnTime = 30;
+
+    public TextMeshProUGUI TurnTimeTxt;
+
+    public Button EntTurnButton;
+
     void Start()
     {
         CurrentGame = new Game();
