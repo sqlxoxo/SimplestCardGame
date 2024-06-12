@@ -9,7 +9,7 @@ public class CardInfoScr : MonoBehaviour
 {
     public Card SelfCard;
     public Image Logo;
-    public TextMeshProUGUI Name;
+    public TextMeshProUGUI Name, Attack, Health, Defense;
     public GameObject HideObj;
 
     public void HideCardInfo(Card card)
