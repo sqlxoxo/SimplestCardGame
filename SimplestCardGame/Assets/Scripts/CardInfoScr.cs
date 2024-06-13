@@ -28,6 +28,10 @@ public class CardInfoScr : MonoBehaviour
         Logo.preserveAspect = true;
         Name.text = card.Name;
 
+        Attack.text = SelfCard.Attack.ToString();
+        Health.text = SelfCard.Attack.ToString();
+        Defense.text = SelfCard.Attack.ToString();
+
     }
 
     public void Start()
