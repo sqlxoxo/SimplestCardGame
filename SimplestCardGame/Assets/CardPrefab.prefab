@@ -200,9 +200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Logo: {fileID: 3128719004558100143}
   Name: {fileID: 2382140230741843956}
-  Attack: {fileID: 0}
-  Health: {fileID: 0}
-  Defense: {fileID: 0}
+  Attack: {fileID: 8255736943027406753}
+  Health: {fileID: 6303358714447756725}
+  Defense: {fileID: 5623251514660246817}
   HideObj: {fileID: 6526554992899335185}
 --- !u!1 &1022160533291011663
 GameObject:

@@ -38,7 +38,8 @@ public class GameManagerScr : MonoBehaviour
 {
     public Game CurrentGame;
 
-    public Transform EnemyHand, PlayerHand;
+    public Transform EnemyHand, PlayerHand,
+                     EnemyField, PlayerField;
 
     public GameObject CardPrefab;
 
@@ -47,6 +48,12 @@ public class GameManagerScr : MonoBehaviour
     public TextMeshProUGUI TurnTimeTxt;
 
     public Button EndTurnButton;
+
+    public List<CardInfoScr> PlayerHandsCards = new List<CardInfoScr>(),
+                             PlayerFieldCards = new List<CardInfoScr>(),
+                             EnemyHandsCards = new List<CardInfoScr>(),
+                             EnemyFieldCards = new List<CardInfoScr>();
+
 
     public bool IsPlayerTurn
     {
@@ -90,10 +97,12 @@ public class GameManagerScr : MonoBehaviour
         if (hand == EnemyHand)
         {
             cardGO.GetComponent<CardInfoScr>().HideCardInfo(card);
+            EnemyHandsCards.Add(cardGO.GetComponent<CardInfoScr>());
         }
         else
         {
             cardGO.GetComponent<CardInfoScr>().ShowCardInfo(card);
+            PlayerHandsCards.Add(cardGO.GetComponent<CardInfoScr>());
         }
         deck.RemoveAt(0);
     }
@@ -118,8 +127,27 @@ public class GameManagerScr : MonoBehaviour
                 TurnTimeTxt.text = TurnTime.ToString();
                 yield return new WaitForSeconds(1);
             }
+            if (EnemyHandsCards.Count > 0)
+            {
+                EnemyTurn(EnemyHandsCards);
+            }
         }
         ChangeTurn();
+    }
+
+    void EnemyTurn(List<CardInfoScr> cards)
+    {
+        int count = cards.Count == 1 ? 1 :
+                    Random.RandomRange(0, cards.Count);
+        for (int i = 0; i < count; i++)
+        {
+            cards[0].ShowCardInfo(cards[0].SelfCard);
+            cards[0].transform.SetParent(EnemyField);
+
+            EnemyFieldCards.Add(cards[0]);
+            EnemyHandsCards.Remove(cards[0]);
+
+        }
     }
 
     public void ChangeTurn()

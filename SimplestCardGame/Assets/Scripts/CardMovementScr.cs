@@ -12,7 +12,7 @@ public class CardMovementScr : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     GameObject TempCardGO;
 
-    GameManagerScr GameManager;
+    public GameManagerScr GameManager;
 
     public bool IsDraggable;
 
