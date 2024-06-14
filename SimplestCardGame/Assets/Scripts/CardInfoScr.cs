@@ -11,16 +11,18 @@ public class CardInfoScr : MonoBehaviour
     public Image Logo;
     public TextMeshProUGUI Name, Attack, Health, Defense;
     public GameObject HideObj, HighlightedObj;
+    public bool IsPlayer;
 
     public void HideCardInfo(Card card)
     {
         SelfCard = card;
         HideObj.SetActive(true);
-
+        IsPlayer = false;
     }
 
-    public void ShowCardInfo(Card card)
+    public void ShowCardInfo(Card card, bool _IsPlayer)
     {
+        IsPlayer = _IsPlayer;
         HideObj.SetActive(false);
         SelfCard = card;
 

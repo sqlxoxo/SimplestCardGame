@@ -101,7 +101,7 @@ public class GameManagerScr : MonoBehaviour
         }
         else
         {
-            cardGO.GetComponent<CardInfoScr>().ShowCardInfo(card);
+            cardGO.GetComponent<CardInfoScr>().ShowCardInfo(card, true);
             PlayerHandsCards.Add(cardGO.GetComponent<CardInfoScr>());
             cardGO.GetComponent<AtackedCard>().enabled = false;
         }
@@ -161,13 +161,26 @@ public class GameManagerScr : MonoBehaviour
             }
 
 
-            cards[0].ShowCardInfo(cards[0].SelfCard);
+            cards[0].ShowCardInfo(cards[0].SelfCard, false);
             cards[0].transform.SetParent(EnemyField);
 
             EnemyFieldCards.Add(cards[0]);
             EnemyHandsCards.Remove(cards[0]);
 
         }
+
+        foreach (var activeCard in EnemyFieldCards.FindAll(x => x.SelfCard.CanAttack))
+        {
+            if (PlayerFieldCards.Count <= 0) { return; }
+
+            var enemy = PlayerFieldCards[Random.Range(0, PlayerFieldCards.Count)];
+
+            Debug.Log(activeCard.SelfCard.Name + " (" + activeCard.SelfCard.Attack + "; " + activeCard.SelfCard.Health + ")" + "---> " + enemy.SelfCard.Name + " (" + enemy.SelfCard.Attack + "; " + enemy.SelfCard.Health + ")");
+
+            activeCard.SelfCard.ChangeAttackState(false);
+            CardsFight(enemy, activeCard);
+        }
+
     }
 
     public void ChangeTurn()

@@ -13,6 +13,11 @@ public class AtackedCard : MonoBehaviour, IDropHandler
         {
             card.SelfCard.ChangeAttackState(false);
             GetComponent<CardMovementScr>().GameManager.CardsFight(card, GetComponent<CardInfoScr>());
+
+            if (card.IsPlayer)
+            {
+                card.DeHighlightCard();
+            }
         }
     }
 }
