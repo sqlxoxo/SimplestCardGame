@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public struct Card
@@ -10,6 +11,16 @@ public struct Card
 
     public int Attack, Health, Defense;
 
+    public bool CanAttack;
+
+    public bool IsAlive
+    {
+        get
+        {
+            return Health > 0;
+        }
+    }
+
     public Card(string name, string logoPath, int attack, int health, int defense)
     {
         Name = name;
@@ -17,7 +28,19 @@ public struct Card
         Attack = attack;
         Health = health;
         Defense = defense;
+        CanAttack = false;
 
+
+    }
+
+    public void ChangeAttackState(bool can)
+    {
+        CanAttack = can;
+    }
+
+    public void GetDamage(int dmg)
+    {
+        Health -= dmg;
     }
 
 }

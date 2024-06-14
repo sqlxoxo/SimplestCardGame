@@ -10,7 +10,7 @@ public class CardInfoScr : MonoBehaviour
     public Card SelfCard;
     public Image Logo;
     public TextMeshProUGUI Name, Attack, Health, Defense;
-    public GameObject HideObj;
+    public GameObject HideObj, HighlightedObj;
 
     public void HideCardInfo(Card card)
     {
@@ -28,15 +28,24 @@ public class CardInfoScr : MonoBehaviour
         Logo.preserveAspect = true;
         Name.text = card.Name;
 
-        Attack.text = SelfCard.Attack.ToString();
-        Health.text = SelfCard.Attack.ToString();
-        Defense.text = SelfCard.Attack.ToString();
-
+        RefreshData();
     }
 
-    public void Start()
+    public void RefreshData()
     {
-        // ShowCardInfo(CardManager.AllCards[transform.GetSiblingIndex()]);
+        Attack.text = SelfCard.Attack.ToString();
+        Health.text = SelfCard.Health.ToString();
+        Defense.text = SelfCard.Defense.ToString();
     }
+
+    public void HighlightCard()
+    {
+        HighlightedObj.SetActive(true);
+    }
+    public void DeHighlightCard()
+    {
+        HighlightedObj.SetActive(false);
+    }
+
 
 }
